@@ -1,0 +1,138 @@
+.app
+{
+    display:flex;
+}
+
+
+/* chessboard.tsx */
+
+
+#chess-board{
+    height : 800px;
+    width : 800px;
+    background-color:blue;
+    position:absolute;
+    /* chessBoard.offset */
+    top:10px;
+    left:10px;
+    display : grid;
+    grid-template-columns : repeat(8,100px);
+    grid-template-rows : repeat(8,100px);
+}
+
+#pawn-promotion-model{
+   position :absolute;
+   z-index : 2;
+   top:0px;
+   left:0px;
+   height:800px;
+   width:800px;
+   
+}
+#pawn-promotion-model.hidden{
+    display:none;
+}
+
+.model{
+    position : absolute;
+    height : 300px;
+    width : 800px;
+    left: 10px;
+    top: 260px;
+    z-index: 1;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(0,0,0,0.4);
+}
+#pawn-promotion-model>.model>img{
+    height:120px;
+    
+}
+
+#pawn-promotion-model>.model>img:hover{
+    background-color: rgba(255,255,255,0.5);
+    border-radius:50%;
+    padding:10px;
+    cursor:pointer;
+    
+}
+
+.tile-highlight:not(.chess-piece-tile)::before {
+
+    content:" ";
+    width : 24px;
+    height: 24px;
+    z-index:0;
+    display: inline-block;
+    border-radius : 50%;
+    background-color: rgba(0,0,0,0.4);
+
+}
+.tile-highlight:not(.chess-piece-tile):hover{
+    cursor:grab;
+}
+.tile-highlight:not(.chess-piece-tile):active{
+    cursor:grabbing;
+}
+
+
+.tile-highlight.chess-piece-tile::before {
+
+    content:" ";
+    position:absolute;
+    z-index:0;
+    width : 90px;
+    height: 90px;
+    border: 5px solid rgba(0,0,0,0.4);
+    border-radius : 50%;
+   
+
+ }
+.tile-highlight.chess-piece-tile:hover{
+    cursor:grab;
+}
+.tile-highlight.chess-piece-tile:active{
+    cursor:grabbing;
+} 
+
+
+/* tiles css */
+
+.tile{
+    height : 100px;
+    width : 100px; 
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    place-content: center;
+
+}
+
+.black-tile {
+    background-color:#779556;
+     
+     
+}
+
+.white-tile{
+    background-color:#ebecd0;
+   
+}
+
+.chess-piece{
+     
+    width: 100px;
+    height:100px;
+    background-position : center;
+    background-repeat: no-repeat;
+    background-size: 80px;
+    
+}
+.chess-piece:hover{
+         cursor : grab;
+}
+.chess-piece:active{
+         cursor : grabbing;
+}
+
